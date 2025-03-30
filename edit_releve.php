@@ -45,7 +45,7 @@
             <input type="date" name="datelimite" value="<?=$releve['Date_limite_paiement']?>" >
         </div>
         <div>
-        <input type="submit"  value="Enregistrer">
+        <input type="submit"  value="Save">
         </div>
     </form>
 </div>
