@@ -1,0 +1,61 @@
+<div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+            <li class="breadcrumb-item active">Tables</li>
+        </ol>
+        <!-- Example DataTables Card-->
+        <div class="card mb-3">
+            <div class="card-header"><i class="fa fa-table"></i> Data Table Example</div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <!-- Table here-->
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Age</th>
+                            <th>Start date</th>
+                            <th>Salary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Olivia Liang</td>
+                            <td>Support Engineer</td>
+                            <td>Singapore</td>
+                            <td>64</td>
+                            <td>2011/02/03</td>
+                            <td>$234,500</td>
+                        </tr>
+                    </tbody>
+                </table> <!-- End of table -->
+            </div>
+        </div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+    </div>
+</div>
+
+
+
+
+
+<?php if($clients):
+                            foreach($clients as $client): ?>
+                            <tr>
+                                <td> <?=$client['CodeCli'];?></td>
+                                <td><?=$client['Nom'];?></td>
+                                <td><?=$client['Prenom'];?></td>
+                                <td><?=$client['Sexe'];?></td>
+                                <td><?=$client['Quartier'];?></td>
+                                <td><?=$client['Niveau'];?></td>
+                                <td><?=$client['Mail'];?></td>
+                                <td><a href="edit_client.php?code=<?=$client['CodeCli'];?>" title="Editer" class="edit"><i class="fas fa-pen fa-xs"></i></a></td>
+                                <td><a href="delete_client.php?code=<?=$client['CodeCli'];?>" title="Supprimer" class="trash"><i class="fas fa-trash fa-xs"></i></a></td>
+                            </tr>
+                        <?php endforeach; else: ?>
+                            <tr><td colspan="6" style="text-align:center;">Pas de données à afficher</td></td>
+                        <?php endif; ?>

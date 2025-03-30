@@ -40,43 +40,57 @@
     include('includes/utils.php');
 ?> 
 <!-- header ici -->
-<?=template_header('Create')?>
+<!-- header ici -->
+<?php include('includes/header.php'); ?>  
 <!-- contenu ici -->
-<div class="content update">
+<div class="content-wrapper">
+        <div class="container-fluid">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="index.html">Dashboard</a>
+                </li>
+                <li class="breadcrumb-item active">Relevés</li>
+            </ol>
+            <div class="row">
+                <div class="col-12">
+                    <h1>Nouveau Relevé</h1>
+                </div>
+                <div class="col-md-8">
     <form action="add_releve.php" method="post">
-        <div>
+        <div class="form-group">
             <label>Code</label>
-            <input type="text" name="code">
+            <input type="text" name="code" class="form-control">
         </div>
-        <div>
+        <div class="form-group">
             <label>Valeur</label>
-            <input type="number" name="valeur">
+            <input type="number" name="valeur" class="form-control">
         </div>
-        <div>
+        <div class="form-group">
             <label>Date de relevé</label>
-            <input type="date" name="datereleve">
+            <input type="date" name="datereleve" class="form-control">
         </div>
-        <div>
+        <div class="form-group">
             <label>Compteur</label>
-            <select  name="compteur" >
+            <select  name="compteur" class="form-control" >
                 <option value="">Choisir un compteur</option>
                 <?php foreach($compteurs as $compteur): ?>
                 <option value="<?=$compteur['CodeCompteur']?>"><?=$compteur['CodeCompteur']?></option>   
                 <?php endforeach; ?>      
             </select>
         </div>
-        <div>
+        <div class="form-group">
             <label>Date de présentation</label>
-            <input type="date" name="datepresentation">
+            <input type="date" name="datepresentation" class="form-control">
         </div>
-        <div>
+        <div class="form-group">
             <label>Date de limite de paiement</label>
-            <input type="date" name="datelimite">
+            <input type="date" name="datelimite" class="form-control">
         </div>
-        <div>
-            <input type="submit"  value="Enregistrer">
-        </div>
+        <input type="submit"  value="Enregistrer" class="btn btn-primary">
     </form>
-</div> <!-- fin contenu -->
-<!-- footer ici -->
-<?=template_footer()?>
+    </div>
+            </div>
+        </div>
+    </div>
+<?php include('includes/footer.php'); ?>  
